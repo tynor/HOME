@@ -1,0 +1,55 @@
+# MACOS DIRS
+
+.DS_Store
+
+/Applications
+/Desktop
+/Downloads
+/Documents
+/Library
+/Movies
+/Music
+/Pictures
+/Public
+/.CFUserTextEncoding
+/.Trash
+
+# Local Software
+/.local
+
+# GOPATH
+/go
+
+# Projects
+/proj
+
+# Cellar Door Media
+/cdm
+
+# Sensitive files
+/.aws/credentials
+/.kube
+/.ssh
+/.netrc
+
+# Config
+/.config
+
+# History Files
+/.history
+/.node_repl_history
+/.python_history
+
+# Miscellaneous Junk
+/.3T
+/.cargo
+/.composer/cache
+/.composer/keys*
+/.composer/vendor
+/.docker
+/.lando
+/.rustup
+/.subversion
+/.terminus
+/.viminfo
+/.yarn
