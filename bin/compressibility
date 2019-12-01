@@ -160,6 +160,7 @@ def path_reader(path):
     if path == '-':
         return sys.stdin.buffer
     if Path(path).is_dir():
+        print(f'Automatically tarring contents of {path}', file=sys.stderr)
         return TarReader(path)
     return open(path, 'rb')
 
