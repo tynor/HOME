@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+
+# Show the size of files (or directories, or stdin) along with their
+# sizes when compressed with gzip and bz2. Everything is done in-memory,
+# and an attempt is made to stream when possible.
+#
+# From: https://github.com/garybernhardt/dotfiles/blob/master/bin/compressibility
+
+import argparse
+import bz2
+from functools import partial
+import io
+from pathlib import Path
+import subprocess
+import sys
+import zlib
+
+
+def main():
+    args = parse_args()
+    if not args.paths:
+        args.paths.append('-')
+    rx = ChainReader(map(path_reader, args.paths))
+    txs = {
+        'plain': CountPlain(),
+        'zlib': CountZlib(),
+        'bz2': CountBz2(),
+    }
+    tee_io(rx, *txs.values())
+    for counter in txs.values():
+        counter.close()
+    size = txs.pop('plain').n
+    fmt = human if args.human else str
+    print(f'original size: {fmt(size)}')
+    if not size:
+        return
+    lines = []
+    name_width = -1
+    size_width = -1
+    for name, counter in txs.items():
+        name_width = max(name_width, len(name))
+        size_s = fmt(counter.n)
+        size_width = max(size_width, len(size_s))
+        lines.append((name, counter.n, size_s, percent(counter.n, size)))
+    idx = 1 if args.sort else 0
+    for name, _, size, pct in sorted(lines, key=lambda l: l[idx]):
+        name = name.rjust(name_width)
+        size = size.rjust(size_width)
+        print(f' {name}: {size} ({pct}%)')
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--human', action='store_true')
+    parser.add_argument('--sort', action='store_true')
+    parser.add_argument('paths', nargs='*')
+    return parser.parse_args()
+
+
+class CountPlain:
+
+    def __init__(self):
+        self.n = 0
+
+    def write(self, data):
+        self.n += len(data)
+        return len(data)
+
+    def close(self):
+        pass
+
+
+class CountZlib:
+
+    def __init__(self):
+        self.z = zlib.compressobj(level=9)
+        self.n = 0
+
+    def write(self, data):
+        self.n += len(self.z.compress(data))
+        return len(data)
+
+    def close(self):
+        self.n += len(self.z.flush())
+
+
+class CountBz2:
+
+    def __init__(self):
+        self.bz2 = bz2.BZ2Compressor()
+        self.n = 0
+
+    def write(self, data):
+        self.n += len(self.bz2.compress(data))
+        return len(data)
+
+    def close(self):
+        self.n += len(self.bz2.flush())
+
+
+class ChainReader:
+
+    def __init__(self, rxs):
+        self.rxs = rxs
+        self._rx = None
+
+    def current_rx(self):
+        if self._rx is None:
+            self._rx = next(self.rxs, None)
+        return self._rx
+
+    def read(self, size=-1):
+        while True:
+            rx = self.current_rx()
+            if rx is None:
+                return b''
+            resp = rx.read(size)
+            if resp == b'':
+                rx.close()
+                self._rx = None
+                continue
+            return resp
+
+    def readinto(self, b):
+        while True:
+            rx = self.current_rx()
+            if rx is None:
+                return 0
+            n = rx.readinto(b)
+            if not n:
+                rx.close()
+                self._rx = None
+                continue
+            return n
+
+
+class TarReader:
+
+    def __init__(self, path):
+        self.p = subprocess.Popen(
+            ['tar', '-c', '-f', '-', path],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+        )
+
+    def read(self, size=-1):
+        data = self.p.stdout.read(size)
+        return data
+
+    def readinto(self, buf):
+        return self.p.stdout.readinto(buf)
+
+    def close(self):
+        self.p.terminate()
+        self.p.wait()
+
+
+def path_reader(path):
+    if path == '-':
+        return sys.stdin.buffer
+    if Path(path).is_dir():
+        return TarReader(path)
+    return open(path, 'rb')
+
+
+READ_SIZE = 1024 * 1024
+
+
+def tee_io(rx, *txs):
+    buf = bytearray(READ_SIZE)
+    while True:
+        n = rx.readinto(buf)
+        if not n:
+            return
+        for tx in txs:
+            write_all(tx, buf[:n])
+
+
+def write_all(tx, data):
+    i = 0
+    while i < len(data):
+        i += tx.write(data[i:])
+
+
+def percent(part, whole):
+    return int(100.0 * part / whole)
+
+
+KB = 1024
+MB = KB * 1024
+GB = MB * 1024
+TB = GB * 1024
+
+
+def human(n):
+    if n >= TB:
+        return f'{n/TB:.2f}TB'
+    elif n >= GB:
+        return f'{n/GB:.2f}GB'
+    elif n >= MB:
+        return f'{n/MB:.2f}MB'
+    elif n >= KB:
+        return f'{n/KB:.2f}KB'
+    return f'{n}  '
+
+
+if __name__ == '__main__':
+    main()
