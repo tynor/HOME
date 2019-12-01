@@ -137,6 +137,9 @@ class ChainReader:
 class TarReader:
 
     def __init__(self, path):
+        # The stdlib tarfile module does not support streaming.
+        # We would need to write the entire archive into a buffer, which
+        # could explode our memory usage on large directories.
         self.p = subprocess.Popen(
             ['tar', '-c', '-f', '-', path],
             stdin=subprocess.DEVNULL,
