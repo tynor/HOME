@@ -2,7 +2,7 @@
 
 # Show the size of files (or directories, or stdin) along with their
 # sizes when compressed with gzip and bz2. Everything is done in-memory,
-# and an attempt is made to stream when possible.
+# and an attempt is made to reduce memory usage when possible.
 #
 # From: https://github.com/garybernhardt/dotfiles/blob/master/bin/compressibility
 
