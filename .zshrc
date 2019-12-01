@@ -6,6 +6,7 @@ PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/bin:$PATH"
 export PATH
 
 export LSCOLORS='ExGxBxDxCxEgEdxbxgxcxd'
