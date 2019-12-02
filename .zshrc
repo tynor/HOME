@@ -9,8 +9,13 @@ PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
 
+setopt AUTO_PUSHD
+setopt PUSHD_SILENT
+
 export LSCOLORS='ExGxBxDxCxEgEdxbxgxcxd'
 export CLICOLOR=1
+
+unset command_not_found_handle
 
 export HISTSIZE=100000
 export HISTFILE="$HOME/.history"
@@ -42,3 +47,7 @@ print_pem_bundle() {
 }
 
 export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
+
+if [ "$(uname)" = Linux ]; then
+    alias ls='ls --color=always'
+fi
