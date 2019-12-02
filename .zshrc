@@ -35,4 +35,10 @@ tmp() {
 
 unsetopt flowcontrol
 
+print_pem_bundle() {
+    openssl crl2pkcs7 -nocrl -certfile "$1" |
+    openssl pkcs7 -print_certs -text -noout |
+    grep 'Subject:'
+}
+
 export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
