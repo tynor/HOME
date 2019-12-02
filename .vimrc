@@ -65,16 +65,7 @@ endfunction
 nmap <leader>n :call RenameFile()<cr>
 
 function! Fzy(command)
-  try
-    let selection = system('rg --files --hidden | fzy')
-  catch /Vim:Interrupt/
-    redraw!
-    return
-  endtry
-  redraw!
-  if v:shell_error == 0 && !empty(selection)
-    exec a:command . ' ' . selection
-  endif
+  call FzyPrefix('.', a:command)
 endfunction
 
 function! FzyPrefix(prefix, command)
@@ -93,11 +84,7 @@ endfunction
 
 function! FzyFileDir(command)
   let prefix = expand('%:h')
-  if prefix == '.'
-    call Fzy(a:command)
-  else
-    call FzyPrefix(prefix, a:command)
-  endif
+  call FzyPrefix(prefix, a:command)
 endfunction
 
 nmap <leader>t :call Fzy(':e')<cr>
