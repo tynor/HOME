@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# From: https://github.com/garybernhardt/dotfiles/blob/master/bin/git-churn
+
+set -euo pipefail
+git log --all -M -C --name-only --format='format:' "$@" |
+sort |
+grep -v '^$' |
+uniq -c |
+sort -n
