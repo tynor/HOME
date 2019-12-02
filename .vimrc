@@ -41,10 +41,13 @@ color tf
 augroup vimrc
   autocmd!
 
+  autocmd FileType gitconfig setl noet
+
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+  autocmd BufReadPost COMMIT_EDITMSG exec "normal gg0"
 augroup END
 
 imap <c-l> <space>=><space>
