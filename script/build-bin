@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo './bin/gn'
+go build -o ./bin/gn ./src/gn.go

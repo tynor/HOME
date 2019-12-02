@@ -20,6 +20,9 @@
 # Local Software
 /.local
 
+# Binaries (built with ./script/build-bin)
+/bin/gn
+
 # GOPATH
 /go
 
