@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ "$1" = -v ]; then
+    verbose=1
+    shift
+fi
+
+start_ref=$1
+end_ref=$2
+shift 2 || true
+command=("$@")
+
+main() {
+    abort_if_dirty_repo
+    enforce_usage
+    run_commands
+}
+
+abort_if_dirty_repo() {
+    set +e
+    local abort
+    git diff-index --quiet --cached HEAD
+    if [ "$?" -ne 0 ]; then
+        echo 'You have staged but not committed changes that would be lost!'
+        abort=1
+    fi
+    git diff-files --quiet
+    if [ "$?" -ne 0 ]; then
+        echo 'You have unstaged changed that would be lost!'
+        abort=1
+    fi
+    local untracked="$(git ls-files --exclude-standard --others)"
+    if [ -n "$untracked" ]; then
+        echo 'You have untracked files that could be overritten!'
+        abort=1
+    fi
+    if [ -n "$abort" ]; then
+        echo 'Aborting.'
+        exit 1
+    fi
+    set -e
+}
+
+enforce_usage() {
+    if [ "${#command[@]}" -eq 0 ]; then
+        usage
+        exit 1
+    fi
+}
+
+usage() {
+    echo "usage: $(basename $0) start_ref end_ref command..."
+}
+
+run_commands() {
+    revs="$(log_command git rev-list --reverse "$start_ref..$end_ref")"
+    for rev in $revs; do
+        debug "checking out: $(git log --oneline -1 "$rev")"
+        log_command git checkout --quiet "$rev"
+        log_command "${command[@]}"
+        log_command git reset --hard --quiet
+    done
+    log_command git checkout --quiet "$end_ref"
+    debug 'OK for all revisions!'
+}
+
+log_command() {
+    debug "=> $*"
+    eval "$@"
+}
+
+debug() {
+    if [ $verbose ]; then
+        echo $* >&2
+    fi
+}
+
+main
