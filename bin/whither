@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# From: https://github.com/garybernhardt/dotfiles/blob/master/bin/whither
+
+set -euo pipefail
+
+lines() {
+    echo "Size}Files}Name"
+    ls -d "$@" | while read p; do
+        echo "$(du -sm "$p" | cut -f1)M}$(find "$p" | wc -l | xargs echo)}$p"
+    done | sort -n
+}
+
+lines "$@" | column -s '}' -t
