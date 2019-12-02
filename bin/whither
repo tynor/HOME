@@ -7,7 +7,12 @@ set -euo pipefail
 lines() {
     echo "Size}Files}Name"
     ls -d "$@" | while read p; do
-        echo "$(du -sm "$p" | cut -f1)M}$(find "$p" | wc -l | xargs echo)}$p"
+        size="$((du -sm "$p" 2>/dev/null | cut -f1) || true)"
+        count="$((find "$p" 2>/dev/null | wc -l | xargs echo) || true)"
+        if [ -z "$size" -o -z "$count" ]; then
+            continue
+        fi
+        echo "${size}M}${count}}${p}"
     done | sort -n
 }
 
