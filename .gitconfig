@@ -22,6 +22,9 @@
 	br = !git r --first-parent
 	bl = !git l --first-parent
 
+	gn = goodness
+	gnc = goodness --cached
+
 	git = !exec git
 
 [user]
