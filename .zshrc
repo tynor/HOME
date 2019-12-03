@@ -17,6 +17,10 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
     fi
 }
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
 export PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
