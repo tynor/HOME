@@ -36,6 +36,10 @@ PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
 
+if [ "$PLATFORM" = Darwin ]; then
+    export DYLD_LIBRARY_PATH=$HOME/.local/lib
+fi
+
 setopt AUTO_PUSHD
 setopt PUSHD_SILENT
 
