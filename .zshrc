@@ -2,10 +2,20 @@ setopt PROMPT_SUBST
 
 autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' stagedstr '!'
-zstyle ':vcs_info:*' unstagedstr '?'
-zstyle ':vcs_info:*' formats '(%F{g}%b%f%F{r}%u%c%f) '
-zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%u%c%f|%a) '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' formats '(%F{g}%b%f%F{r}%u%c%m%f) '
+zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%u%c%m%f|%a) '
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
++vi-git-untracked() {
+    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        hook_com[misc]='?'
+    else
+        hook_com[misc]=''
+    fi
+}
 
 export PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
 
