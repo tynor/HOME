@@ -5,8 +5,8 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*' formats '(%F{g}%b%f%F{r}%u%c%m%f) '
-zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%u%c%m%f|%a) '
+zstyle ':vcs_info:*' formats '(%F{g}%b%f%F{r}%c%u%m%f) '
+zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%c%u%m%f|%a) '
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 +vi-git-untracked() {
