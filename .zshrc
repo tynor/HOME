@@ -1,5 +1,3 @@
-PLATFORM="$(uname)"
-
 setopt PROMPT_SUBST
 
 autoload -U vcs_info
@@ -24,21 +22,6 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 export PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
-
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-if [ "$PLATFORM" = Darwin ]; then
-    PATH="$HOME/Library/Python/3.7/bin:$PATH"
-fi
-PATH="$HOME/.composer/vendor/bin:$PATH"
-PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-PATH="$HOME/.cargo/bin:$PATH"
-PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/bin:$PATH"
-export PATH
-
-if [ "$PLATFORM" = Darwin ]; then
-    export DYLD_LIBRARY_PATH=$HOME/.local/lib
-fi
 
 setopt AUTO_PUSHD
 setopt PUSHD_SILENT
@@ -79,8 +62,6 @@ print_pem_bundle() {
     openssl pkcs7 -print_certs -text -noout |
     grep 'Subject:'
 }
-
-export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
 
 if [ "PLATFORM" = Linux ]; then
     alias ls='ls --color=always'
