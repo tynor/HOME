@@ -25,6 +25,8 @@
 	gn = goodness
 	gnc = goodness --cached
 
+	div = divergence
+
 	git = !exec git
 
 [user]
