@@ -1,4 +1,13 @@
-export PS1='%F{g}%m%f:%1~ $ '
+setopt PROMPT_SUBST
+
+autoload -U vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' stagedstr '!'
+zstyle ':vcs_info:*' unstagedstr '?'
+zstyle ':vcs_info:*' formats '(%F{g}%b%f%F{r}%u%c%f) '
+zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%u%c%f|%a) '
+
+export PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 PATH="$HOME/Library/Python/3.7/bin:$PATH"
@@ -30,6 +39,9 @@ set -o emacs
 
 export WORDCHARS='*?[]~&;:$%^<>'
 
+autoload -U compinit
+compinit
+
 mcd() {
     mkdir -p "$1" && cd "$1"
 }
@@ -51,3 +63,7 @@ export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
 if [ "$(uname)" = Linux ]; then
     alias ls='ls --color=always'
 fi
+
+precmd() {
+    vcs_info
+}
