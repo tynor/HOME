@@ -42,4 +42,4 @@
 	algorithm = patience
 
 [includeIf "gitdir:~/cdm/lockr/"]
-	path = ~/cdm/lockr/.gitconfig
+	path = ./lockr.config
