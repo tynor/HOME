@@ -39,7 +39,7 @@
 /.netrc
 
 # Config
-/.config
+/.config/configstore
 
 # History Files
 /.history
