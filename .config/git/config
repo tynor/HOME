@@ -12,13 +12,13 @@
 	fa = fetch --all
 	ds = diff --stat=160,120
 
-	l = "!. ~/.githelpers && pretty_git_log"
+	l = "!. ~/script/githelpers && pretty_git_log"
 	la = !git l --all
 	r = !GIT_NO_PAGER=1 git l -10
 	ra = !git r --all
-	b = "!. ~/.githelpers && pretty_git_branch"
+	b = "!. ~/script/githelpers && pretty_git_branch"
 	ba = !git b -a
-	bs = "!. ~/.githelpers && pretty_git_branch_sorted"
+	bs = "!. ~/script/githelpers && pretty_git_branch_sorted"
 	br = !git r --first-parent
 	bl = !git l --first-parent
 
