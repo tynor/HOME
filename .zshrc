@@ -63,7 +63,7 @@ print_pem_bundle() {
     grep 'Subject:'
 }
 
-if [ "PLATFORM" = Linux ]; then
+if [ "$(uname)" = Linux ]; then
     alias ls='ls --color=always'
 fi
 
