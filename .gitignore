@@ -54,6 +54,7 @@
 /.composer/vendor
 /.docker
 /.lando
+/.lesshst
 /.rustup
 /.subversion
 /.terminus
