@@ -1,0 +1,3 @@
+--restrict-filenames
+--no-mtime
+--no-call-home
