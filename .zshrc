@@ -21,7 +21,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
-export PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
+PS1='%F{g}%m%f:%1~ ${vcs_info_msg_0_}$ '
 
 setopt AUTO_PUSHD
 setopt PUSHD_SILENT
