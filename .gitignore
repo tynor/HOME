@@ -35,8 +35,9 @@
 # Sensitive files
 /.aws/credentials
 /.kube
-/.ssh
 /.netrc
+/.sem.yaml
+/.ssh
 
 # Config
 /.config/configstore
