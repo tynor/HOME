@@ -53,6 +53,7 @@
 /.composer/cache
 /.composer/keys*
 /.composer/vendor
+/.cups
 /.docker
 /.lando
 /.lesshst
