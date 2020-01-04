@@ -63,8 +63,8 @@ print_pem_bundle() {
     grep 'Subject:'
 }
 
-docker_image_id() {
-    docker inspect -f '{{.Id}}' "$1" | head -1
+docker_image_sha256() {
+    docker inspect -f '{{index .RepoDigests 0}}' "$1" | head -1
 }
 
 if [ "$(uname)" = Linux ]; then
