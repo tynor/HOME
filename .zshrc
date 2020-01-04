@@ -63,6 +63,10 @@ print_pem_bundle() {
     grep 'Subject:'
 }
 
+docker_image_id() {
+    docker inspect -f '{{.Id}}' "$1" | head -1
+}
+
 if [ "$(uname)" = Linux ]; then
     alias ls='ls --color=always'
 fi
