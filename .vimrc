@@ -43,6 +43,7 @@ augroup vimrc
   autocmd!
 
   autocmd FileType gitconfig setl noet
+  autocmd FileType go setl noet
 
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
