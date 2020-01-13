@@ -44,8 +44,10 @@
 
 # History Files
 /.history
+/.lesshst
 /.node_repl_history
 /.python_history
+/.rediscli_history
 
 # Miscellaneous Junk
 /.3T
@@ -56,7 +58,6 @@
 /.cups
 /.docker
 /.lando
-/.lesshst
 /.rustup
 /.subversion
 /.terminus
