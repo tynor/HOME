@@ -71,6 +71,31 @@ if [ "$(uname)" = Linux ]; then
     alias ls='ls --color=always'
 fi
 
+if [ -f "$HOME/.local/iterm2_shell_integration.zsh" ]; then
+    . "$HOME/.local/iterm2_shell_integration.zsh"
+fi
+
+find_closest_gitdir() {
+    local search="$PWD"
+    while true; do
+        if [ "$search" = / ]; then
+            return
+        fi
+        if [ -d "$search/.git" ]; then
+            echo "$search"
+            return
+        fi
+        search="$(dirname "$search")"
+    done
+}
+
+iterm2_set_status() {
+    if which it2setkeylabel &>/dev/null; then
+        it2setkeylabel set status "$(find_closest_gitdir)"
+    fi
+}
+
 precmd() {
     vcs_info
+    iterm2_set_status
 }
