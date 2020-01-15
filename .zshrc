@@ -105,5 +105,10 @@ iterm2_set_status() {
 
 precmd() {
     vcs_info
+}
+
+chpwd() {
     iterm2_set_status
 }
+
+iterm2_set_status
