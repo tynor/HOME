@@ -51,6 +51,10 @@ mcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+ng() {
+    git init "$1" && cd "$1"
+}
+
 tmp() {
     cd $(mktemp -d)
 }
