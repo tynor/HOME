@@ -95,7 +95,11 @@ find_closest_gitdir() {
 
 iterm2_set_status() {
     if which it2setkeylabel &>/dev/null; then
-        it2setkeylabel set status "$(find_closest_gitdir)"
+        local gitdir="$(find_closest_gitdir)"
+        if [[ $gitdir = $HOME* ]]; then
+            gitdir="~${gitdir#"$HOME"}"
+        fi
+        it2setkeylabel set status "$gitdir"
     fi
 }
 
