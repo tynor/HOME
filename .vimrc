@@ -53,10 +53,19 @@ augroup vimrc
   autocmd BufReadPost COMMIT_EDITMSG exec "normal gg0"
 augroup END
 
+function! EditPrefix()
+  let l:prefix = expand('%:h')
+  if l:prefix == ''
+    return './'
+  else
+    return l:prefix . '/'
+  endif
+endfunction
+
 imap <c-l> <space>=><space>
 imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
-cnoremap <expr> %% expand('%:h').'/'
+cnoremap <expr> %% EditPrefix()
 nmap <leader>c :noh<cr>
 
 function! RenameFile()
