@@ -45,6 +45,7 @@ augroup vimrc
   autocmd FileType gitconfig setl noet
   autocmd FileType go setl noet
   autocmd FileType php setl ai
+  autocmd FileType yaml setl ts=2 sts=2 sw=2 et
 
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
