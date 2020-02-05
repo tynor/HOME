@@ -58,6 +58,7 @@
 /.cups
 /.docker
 /.lando
+/.linkerd2
 /.rustup
 /.subversion
 /.terminus
