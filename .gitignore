@@ -43,6 +43,7 @@
 /.config/configstore
 
 # History Files
+/.chezscheme_history
 /.history
 /.lesshst
 /.node_repl_history
