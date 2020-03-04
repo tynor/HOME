@@ -58,6 +58,7 @@
 /.composer/vendor
 /.cups
 /.docker
+/.drush
 /.lando
 /.linkerd2
 /.rustup
