@@ -5,4 +5,5 @@
 
 set -euo pipefail
 
-git branch --format '%(refname:short)' | fzy | xargs git "$@"
+branch="$(git branch --format '%(refname:short)' | fzy)"
+git "$@" "$branch"

@@ -23,6 +23,8 @@
 	br = !git r --first-parent
 	bl = !git l --first-parent
 
+	wb = with-branch
+
 	gn = goodness
 	gnc = goodness --cached
 
