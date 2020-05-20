@@ -57,6 +57,7 @@
 /.composer/cache
 /.composer/keys*
 /.composer/vendor
+/.config/psysh
 /.config/yarn
 /.cups
 /.docker
