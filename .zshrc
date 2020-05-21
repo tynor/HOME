@@ -10,7 +10,7 @@ zstyle ':vcs_info:*' actionformats '(%F{g}%b%f%F{r}%c%u%m%f|%a) '
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 +vi-git-untracked() {
-    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+    if [ -n "$(git ls-files --others --exclude-standard 2>/dev/null)" ]; then
         hook_com[misc]='?'
     else
         hook_com[misc]=''
