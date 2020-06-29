@@ -13,3 +13,6 @@
 [submodule "gitignore"]
 	path = gitignore
 	url = https://github.com/github/gitignore.git
+[submodule ".vim/pack/default/start/vim-terraform"]
+	path = .vim/pack/default/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform
