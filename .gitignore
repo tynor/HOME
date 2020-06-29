@@ -67,6 +67,7 @@
 /.rustup
 /.subversion
 /.terminus
+/.terraform.d
 /.viminfo
 /.yarn
 /.yarnrc
