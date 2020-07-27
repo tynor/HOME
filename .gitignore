@@ -64,6 +64,7 @@
 /.drush
 /.lando
 /.linkerd2
+/.npm
 /.rustup
 /.subversion
 /.terminus
