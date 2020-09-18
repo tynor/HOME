@@ -16,3 +16,5 @@ if [ "$(uname)" = Darwin ]; then
 fi
 
 export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
+
+export SELECTOR=fzy
