@@ -71,6 +71,7 @@
 /.subversion
 /.terminus
 /.terraform.d
+/.ts_node_repl_history
 /.viminfo
 /.yarn
 /.yarnrc
