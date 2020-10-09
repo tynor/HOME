@@ -33,7 +33,9 @@
 /cdm
 
 # Sensitive files
+/.aws/cli/
 /.aws/credentials
+/.aws/sso/
 /.kube
 /.netrc
 /.sem.yaml
