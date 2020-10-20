@@ -55,6 +55,7 @@
 
 # Miscellaneous Junk
 /.3T
+/.BurpSuite
 /.cargo
 /.composer/cache
 /.composer/keys*
