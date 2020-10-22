@@ -18,3 +18,5 @@ fi
 export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
 
 export SELECTOR=fzy
+
+export DOCKER_BUILDKIT=1
