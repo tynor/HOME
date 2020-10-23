@@ -1,3 +1,6 @@
+[core]
+	attributesfile = ~/.config/git/attributes
+
 [alias]
 	st = status --short
 	sta = status --short -uall
