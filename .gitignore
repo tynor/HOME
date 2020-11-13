@@ -43,6 +43,7 @@
 
 # Config
 /.config/configstore
+/.config/wireshark
 
 # History Files
 /.chezscheme_history
