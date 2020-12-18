@@ -103,6 +103,12 @@ iterm2_set_status() {
     fi
 }
 
+if [ "$(uname)" = Darwin ]; then
+    clear_quarantine() {
+        xattr -r -d com.apple.quarantine "$@"
+    }
+fi
+
 precmd() {
     vcs_info
     iterm2_set_status
