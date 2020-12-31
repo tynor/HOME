@@ -16,3 +16,6 @@
 [submodule ".vim/pack/default/start/vim-terraform"]
 	path = .vim/pack/default/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule ".vim/pack/default/start/vim-lsc"]
+	path = .vim/pack/default/start/vim-lsc
+	url = https://github.com/natebosch/vim-lsc.git
