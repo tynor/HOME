@@ -116,7 +116,8 @@ function! TSServerPath()
 endfunction
 
 let g:lsc_server_commands = {
-      \ 'typescript': 'typescript-language-server --stdio' . TSServerPath()
+      \ 'typescript': 'typescript-language-server --stdio' . TSServerPath(),
+      \ 'typescriptreact': 'typescript-language-server --stdio' . TSServerPath()
       \ }
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_auto_map = v:true
