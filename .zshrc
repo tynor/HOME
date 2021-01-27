@@ -113,3 +113,7 @@ precmd() {
     vcs_info
     iterm2_set_status
 }
+
+if which direnv &>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
