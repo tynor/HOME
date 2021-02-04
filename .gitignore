@@ -77,6 +77,7 @@
 /.terminus
 /.terraform.d
 /.ts_node_repl_history
+/.vault-token
 /.viminfo
 /.yarn
 /.yarnrc
