@@ -1,6 +1,8 @@
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 if [ "$(uname)" = Darwin ]; then
-    PATH="$HOME/Library/Python/3.7/bin:$PATH"
+    for d in $HOME/Library/Python/*; do
+        PATH="$d/bin:$PATH"
+    done
 fi
 PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
