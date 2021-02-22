@@ -43,7 +43,10 @@
 
 # Config
 /.config/configstore
+/.config/iterm2
+/.config/psysh
 /.config/wireshark
+/.config/yarn
 
 # History Files
 /.chezscheme_history
@@ -63,8 +66,6 @@
 /.composer/cache
 /.composer/keys*
 /.composer/vendor
-/.config/psysh
-/.config/yarn
 /.cups
 /.docker
 /.drush
