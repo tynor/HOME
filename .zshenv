@@ -26,3 +26,7 @@ export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
 export SELECTOR=fzy
 
 export DOCKER_BUILDKIT=1
+
+# Request ads be disabled
+export ADBLOCK=1
+export DISABLE_OPENCOLLECTIVE=1
