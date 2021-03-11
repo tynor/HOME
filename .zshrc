@@ -117,3 +117,6 @@ precmd() {
 if which direnv &>/dev/null; then
     eval "$(direnv hook zsh)"
 fi
+
+# Fix for lando having circular imports
+alias lando='NODE_NO_WARNINGS=1 lando'
