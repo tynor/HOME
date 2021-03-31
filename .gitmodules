@@ -19,3 +19,6 @@
 [submodule ".vim/pack/default/start/vim-lsc"]
 	path = .vim/pack/default/start/vim-lsc
 	url = https://github.com/natebosch/vim-lsc.git
+[submodule ".vim/pack/default/start/graphql"]
+	path = .vim/pack/default/start/graphql
+	url = https://github.com/jparise/vim-graphql.git
