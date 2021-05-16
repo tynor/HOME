@@ -49,3 +49,5 @@
 
 [includeIf "gitdir:~/cdm/lockr/"]
 	path = ./lockr.config
+[init]
+	defaultBranch = master
