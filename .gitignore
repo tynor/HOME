@@ -42,6 +42,7 @@
 /.ssh
 
 # Config
+/.config/asciinema/install-id
 /.config/configstore
 /.config/iterm2
 /.config/psysh
