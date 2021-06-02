@@ -47,6 +47,8 @@
 	tool = vimdiff
 	algorithm = patience
 
+[includeIf "gitdir:~/cdm/"]
+	path = ./cdm.config
 [includeIf "gitdir:~/cdm/lockr/"]
 	path = ./lockr.config
 [init]
