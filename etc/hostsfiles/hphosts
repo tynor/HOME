@@ -64167,7 +64167,7 @@
 
 127.0.0.1	newprose.bravejournal.com
 
-127.0.0.1	newrelic.com
+# 127.0.0.1	newrelic.com
 
 127.0.0.1	news-whistleout.s3.amazonaws.com
 
