@@ -11,9 +11,9 @@ PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/bin:$PATH"
-if [ -d /usr/local/opt/node@14/bin ]; then
+if [ -d /usr/local/opt/node@16/bin ]; then
     # Homebrew overwrites LTS versions of node with current.
-    PATH="/usr/local/opt/node@14/bin:$PATH"
+    PATH="/usr/local/opt/node@16/bin:$PATH"
 fi
 export PATH
 
