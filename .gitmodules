@@ -22,3 +22,6 @@
 [submodule ".vim/pack/default/start/graphql"]
 	path = .vim/pack/default/start/graphql
 	url = https://github.com/jparise/vim-graphql.git
+[submodule ".vim/pack/default/start/purescript-vim"]
+	path = .vim/pack/default/start/purescript-vim
+	url = https://github.com/purescript-contrib/purescript-vim
