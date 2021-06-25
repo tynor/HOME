@@ -46,6 +46,7 @@ augroup vimrc
   autocmd FileType go setl noet
   autocmd FileType php setl ai
   autocmd FileType proto setl ts=2 sts=2 sw=2 et
+  autocmd FileType purescript setl ts=2 sts=2 sw=2 et
   autocmd FileType yaml setl ts=2 sts=2 sw=2 et
 
   autocmd BufReadPost *
