@@ -64,6 +64,7 @@
 # Miscellaneous Junk
 /.3T
 /.BurpSuite
+/.azure
 /.cache
 /.cargo
 /.composer/cache
