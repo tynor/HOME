@@ -60,6 +60,8 @@
 /.rediscli_history
 /.sqlite_history
 /.zcompcache
+/.zsh_history
+/.zsh_sessions
 
 # Miscellaneous Junk
 /.3T
