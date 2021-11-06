@@ -2,6 +2,7 @@ setopt PROMPT_SUBST
 
 autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' enable hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' unstagedstr '!'
