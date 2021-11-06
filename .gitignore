@@ -64,6 +64,10 @@
 /.zsh_history
 /.zsh_sessions
 
+# Bazel
+/.bazel
+/bin/bazel
+
 # Miscellaneous Junk
 /.3T
 /.BurpSuite
