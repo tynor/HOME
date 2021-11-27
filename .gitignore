@@ -82,6 +82,7 @@
 /.drush
 /.lando
 /.linkerd2
+/.lldb
 /.m2
 /.node-gyp
 /.npm
