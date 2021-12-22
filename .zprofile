@@ -9,6 +9,7 @@ PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.linkerd2/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
+PATH="/usr/local/smlnj/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
@@ -16,8 +17,6 @@ export PATH
 if [ "$(uname)" = Darwin ]; then
     export DYLD_LIBRARY_PATH=$HOME/.local/lib
 fi
-
-export GOPRIVATE=go.lockr.io/inf,go.lockr.io/lockr
 
 export SELECTOR=fzy
 
