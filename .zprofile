@@ -1,5 +1,5 @@
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-if [ "$(uname)" = Darwin ]; then
+if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
     for d in $HOME/Library/Python/*; do
         PATH="$d/bin:$PATH"
     done
