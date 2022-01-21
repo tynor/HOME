@@ -14,7 +14,7 @@
 /.CFUserTextEncoding
 /.Trash
 
-# gitidr
+# gitdir
 /.git
 
 # Local Software
@@ -36,6 +36,7 @@
 /.aws/cli/
 /.aws/credentials
 /.aws/sso/
+/.backups
 /.kube
 /.netrc
 /.sem.yaml
