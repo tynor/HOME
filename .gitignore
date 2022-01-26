@@ -19,6 +19,7 @@
 
 # Local Software
 /.local
+/.zlogin
 
 # Binaries (built with ./script/build-bin)
 /bin/gn
