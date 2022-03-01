@@ -38,6 +38,7 @@
 /.aws/credentials
 /.aws/sso/
 /.backups
+/.gnupg
 /.kube
 /.netrc
 /.sem.yaml
