@@ -118,5 +118,10 @@ if which direnv &>/dev/null; then
     eval "$(direnv hook zsh)"
 fi
 
+if which gpg &>/dev/null; then
+    GPG_TTY="$(tty)"
+    export GPG_TTY
+fi
+
 # Fix for lando having circular imports
 alias lando='NODE_NO_WARNINGS=1 lando'
