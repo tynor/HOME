@@ -38,6 +38,7 @@
 [user]
 	name = Tynor Fujimoto
 	email = tynor@hey.com
+	signingkey = DDDD8C5312F7AAFC
 
 [merge]
 	tool = opendiff
