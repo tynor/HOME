@@ -25,3 +25,6 @@
 [submodule ".vim/pack/default/start/purescript-vim"]
 	path = .vim/pack/default/start/purescript-vim
 	url = https://github.com/purescript-contrib/purescript-vim
+[submodule ".vim/pack/default/start/vim-fugitive"]
+	path = .vim/pack/default/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
