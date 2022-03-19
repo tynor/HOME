@@ -31,3 +31,6 @@
 [submodule ".vim/pack/default/start/haskell-vim"]
 	path = .vim/pack/default/start/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim
+[submodule ".vim/pack/default/start/vim-hindent"]
+	path = .vim/pack/default/start/vim-hindent
+	url = https://github.com/alx741/vim-hindent
