@@ -56,6 +56,7 @@
 # History Files
 /.chezscheme_history
 /.config/ghc/ghci_history
+/.ghc/ghci_history
 /.history
 /.lesshst
 /.mysql_history
