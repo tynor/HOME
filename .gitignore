@@ -87,6 +87,7 @@
 /.linkerd2
 /.lldb
 /.m2
+/.node
 /.node-gyp
 /.npm
 /.op
