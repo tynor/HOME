@@ -79,30 +79,6 @@ if [ -f "$HOME/.local/iterm2_shell_integration.zsh" ]; then
     . "$HOME/.local/iterm2_shell_integration.zsh"
 fi
 
-find_closest_gitdir() {
-    local search="$PWD"
-    while true; do
-        if [ "$search" = / ]; then
-            return
-        fi
-        if [ -d "$search/.git" ]; then
-            echo "$search"
-            return
-        fi
-        search="$(dirname "$search")"
-    done
-}
-
-iterm2_set_status() {
-    if which it2setkeylabel &>/dev/null; then
-        local gitdir="$(find_closest_gitdir)"
-        if [[ $gitdir = $HOME* ]]; then
-            gitdir="~${gitdir#"$HOME"}"
-        fi
-        it2setkeylabel set status "$gitdir"
-    fi
-}
-
 if [ "$(uname)" = Darwin ]; then
     clear_quarantine() {
         xattr -r -d com.apple.quarantine "$@"
@@ -111,7 +87,6 @@ fi
 
 precmd() {
     vcs_info
-    iterm2_set_status
 }
 
 if which direnv &>/dev/null; then
@@ -122,6 +97,3 @@ if which gpg &>/dev/null; then
     GPG_TTY="$(tty)"
     export GPG_TTY
 fi
-
-# Fix for lando having circular imports
-alias lando='NODE_NO_WARNINGS=1 lando'
