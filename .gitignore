@@ -75,6 +75,7 @@
 /.3T
 /.BurpSuite
 /.azure
+/.cabal
 /.cache
 /.cargo
 /.composer/cache
@@ -83,6 +84,7 @@
 /.cups
 /.docker
 /.drush
+/.ghcup
 /.lando
 /.linkerd2
 /.lldb
