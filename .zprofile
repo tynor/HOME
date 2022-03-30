@@ -4,7 +4,6 @@ if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
         PATH="$d/bin:$PATH"
     done
 fi
-PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.linkerd2/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
