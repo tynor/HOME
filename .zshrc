@@ -75,10 +75,6 @@ if [ "$(uname)" = Linux ]; then
     alias ls='ls --color=always'
 fi
 
-if [ -f "$HOME/.local/iterm2_shell_integration.zsh" ]; then
-    . "$HOME/.local/iterm2_shell_integration.zsh"
-fi
-
 if [ "$(uname)" = Darwin ]; then
     clear_quarantine() {
         xattr -r -d com.apple.quarantine "$@"
