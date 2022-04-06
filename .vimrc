@@ -124,4 +124,5 @@ let g:lsc_server_commands = {
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_auto_map = v:true
 
-let g:haskell_indent_if = 0
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
