@@ -4,3 +4,6 @@
 [submodule ".vim/pack/default/start/editorconfig-vim"]
 	path = .vim/pack/default/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule ".vim/pack/default/start/vim-commentary"]
+	path = .vim/pack/default/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
