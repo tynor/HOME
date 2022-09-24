@@ -13,3 +13,6 @@
 [submodule ".vim/pack/default/start/vim-python-pep8-indent"]
 	path = .vim/pack/default/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent
+[submodule ".vim/pack/default/start/vim-eunuch"]
+	path = .vim/pack/default/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
