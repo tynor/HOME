@@ -7,3 +7,6 @@
 [submodule ".vim/pack/default/start/vim-commentary"]
 	path = .vim/pack/default/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/pack/default/start/vim-fugitive"]
+	path = .vim/pack/default/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
