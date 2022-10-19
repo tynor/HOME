@@ -5,10 +5,8 @@ if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
     done
 fi
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-PATH="$HOME/.linkerd2/bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
-PATH="/usr/local/smlnj/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.ghcup/bin:$PATH"
 PATH="$HOME/bin:$PATH"
