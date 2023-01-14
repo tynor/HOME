@@ -123,5 +123,9 @@ if which gpg &>/dev/null; then
     export GPG_TTY
 fi
 
+if [ -d "$HOME/.local/opt/jdk/current" ]; then
+    export JAVA_HOME="$HOME/.local/opt/jdk/current/Contents/Home"
+fi
+
 # Alias defined for working with the ~/.dotfiles repository
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
