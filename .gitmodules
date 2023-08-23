@@ -19,3 +19,6 @@
 [submodule ".vim/pack/default/start/vim-repeat"]
 	path = .vim/pack/default/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule ".config/nvim/pack/default/start/vim-surround"]
+	path = .config/nvim/pack/default/start/vim-surround
+	url = http://github.com/tpope/vim-surround
