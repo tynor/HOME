@@ -22,3 +22,6 @@
 [submodule ".config/nvim/pack/default/start/vim-surround"]
 	path = .config/nvim/pack/default/start/vim-surround
 	url = http://github.com/tpope/vim-surround
+[submodule ".config/nvim/pack/default/start/vim-fugitive"]
+	path = .config/nvim/pack/default/start/vim-fugitive
+	url = http://github.com/tpope/vim-fugitive
