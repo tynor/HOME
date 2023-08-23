@@ -25,3 +25,6 @@
 [submodule ".config/nvim/pack/default/start/vim-fugitive"]
 	path = .config/nvim/pack/default/start/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive
+[submodule ".config/nvim/pack/default/start/vim-commentary"]
+	path = .config/nvim/pack/default/start/vim-commentary
+	url = http://github.com/tpope/vim-commentary
