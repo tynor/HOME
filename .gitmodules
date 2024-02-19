@@ -28,3 +28,6 @@
 [submodule ".config/nvim/pack/default/start/vim-commentary"]
 	path = .config/nvim/pack/default/start/vim-commentary
 	url = http://github.com/tpope/vim-commentary
+[submodule ".vim/pack/default/start/vim-speeddating"]
+	path = .vim/pack/default/start/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git

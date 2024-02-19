@@ -10,13 +10,14 @@ fi
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.docker/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.ghcup/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 export PATH
 
 if [ "$(uname)" = Darwin ]; then
-    export DYLD_LIBRARY_PATH=$HOME/.local/lib
+    export DYLD_LIBRARY_PATH=$HOME/.local/lib:/usr/local/lib
 fi
 
 export SELECTOR=fzy
