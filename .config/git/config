@@ -41,12 +41,19 @@
 	signingkey = DDDD8C5312F7AAFC
 
 [merge]
+	conflictstyle = zdiff3
 	tool = opendiff
 
 [diff]
 	submodule = log
 	tool = vimdiff
-	algorithm = patience
+	algorithm = histogram
+
+[rerere]
+	enabled = true
 
 [init]
 	defaultBranch = master
+
+[include]
+	path = config.local
