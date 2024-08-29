@@ -126,3 +126,9 @@ let g:lsc_auto_map = v:true
 
 let g:haskell_indent_if = 2
 let g:haskell_indent_before_where = 2
+
+let g:ycm_auto_hover = ''
+
+nnoremap <leader>gg :YcmCompleter GoTo<cr>
+nnoremap <leader>gf :YcmCompleter Format<cr>
+nnoremap <leader>gc :pc<cr>
