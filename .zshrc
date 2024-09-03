@@ -1,4 +1,4 @@
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+PATH="/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
     for d in $HOME/Library/Python/*; do
         PATH="$d/bin:$PATH"
@@ -130,3 +130,17 @@ fi
 
 # Alias defined for working with the ~/.dotfiles repository
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias ssh-add-keychain='ssh-add --apple-load-keychain'
+
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_EMOJI=1

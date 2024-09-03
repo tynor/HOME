@@ -50,6 +50,7 @@ augroup vimrc
   autocmd FileType proto setl ts=2 sts=2 sw=2 et
   autocmd FileType purescript setl ts=2 sts=2 sw=2 et
   autocmd FileType yaml setl ts=2 sts=2 sw=2 et
+  autocmd FileType python setl fdm=indent fdo-=search
 
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
