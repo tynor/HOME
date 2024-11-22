@@ -72,7 +72,7 @@ imap <c-l> <space>=><space>
 imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
 cnoremap <expr> %% EditPrefix()
-nmap <leader>c :noh<cr>
+nmap <leader>c :noh\|pc<cr>
 
 function! RenameFile()
   let old_name = expand('%')
