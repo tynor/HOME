@@ -1,11 +1,12 @@
-PATH="/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
     for d in $HOME/Library/Python/*; do
         PATH="$d/bin:$PATH"
     done
 fi
-if [ -d "$HOME/.local/opt/go/goroot/bin" ]; then
-    PATH="$HOME/.local/opt/go/goroot/bin:$PATH"
+if [ -d "/usr/local/go" ]; then
+    PATH="/usr/local/go/bin:$PATH"
 fi
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
@@ -127,6 +128,12 @@ fi
 if [ -d "$HOME/.local/opt/jdk/current" ]; then
     export JAVA_HOME="$HOME/.local/opt/jdk/current/Contents/Home"
 fi
+
+if [ -r "$HOME/.opam/opam-init/init.zsh" ]; then
+    source '/Users/tynor/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+fi
+
+export HOMEBREW_NO_EMOJI=1
 
 # Alias defined for working with the ~/.dotfiles repository
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
