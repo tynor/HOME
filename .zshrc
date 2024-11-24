@@ -146,8 +146,11 @@ export HOMEBREW_REPOSITORY="/opt/homebrew"
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+google_sdk_path=$(brew --prefix)/share/google-cloud-sdk
+if [ -d "$google_sdk_path" ]; then
+    source "$google_sdk_path/path.zsh.inc"
+    source "$google_sdk_path/completion.zsh.inc"
+fi
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_EMOJI=1
