@@ -1,0 +1,14 @@
+font-family = Source Code Pro
+font-size = 12
+
+background = 000000
+foreground = c3c3c3
+
+cursor-style = block
+cursor-style-blink = false
+
+window-theme = dark
+
+shell-integration-features = no-cursor
+
+auto-update = check
