@@ -154,3 +154,7 @@ fi
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_EMOJI=1
+
+if [ -f "$HOME/.zshrc-local" ]; then
+    source "$HOME/.zshrc-local"
+fi
