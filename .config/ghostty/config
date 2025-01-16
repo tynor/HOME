@@ -1,5 +1,6 @@
 font-family = Source Code Pro
 font-size = 12
+font-feature = -calt
 
 background = 000000
 foreground = c3c3c3
