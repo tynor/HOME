@@ -1,13 +1,9 @@
-PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-if [ "$(uname)" = Darwin -a -d "$HOME/Library/Python" ]; then
-    for d in $HOME/Library/Python/*; do
-        PATH="$d/bin:$PATH"
-    done
-fi
 if [ -d "/usr/local/go" ]; then
     PATH="/usr/local/go/bin:$PATH"
 fi
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
