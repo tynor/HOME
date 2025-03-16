@@ -31,3 +31,6 @@
 [submodule ".vim/pack/default/start/vim-speeddating"]
 	path = .vim/pack/default/start/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule ".vim/pack/default/start/vim-graphql"]
+	path = .vim/pack/default/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql
