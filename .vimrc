@@ -36,8 +36,8 @@ set t_Co=256
 set background=dark
 set statusline=%<%f\ %y\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
+syntax on
 color tf
-syntax off
 
 augroup vimrc
   autocmd!

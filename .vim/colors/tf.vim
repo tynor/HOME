@@ -1,29 +1,46 @@
-runtime colors/ir_black.vim
+set background=dark
+hi clear
+
+if exists("syntax_on")
+  syntax reset
+endif
 
 let g:colors_name = "tf"
 
-hi pythonSpaceError ctermbg=red guibg=red
+hi Normal           ctermfg=NONE        ctermbg=NONE
+hi NonText          ctermfg=darkgrey
 
-hi Comment ctermfg=lightgrey
+hi Cursor           ctermfg=black       ctermbg=white       cterm=reverse
+hi CursorLine       ctermbg=234  cterm=NONE
+hi LineNr           ctermfg=darkgray
 
-hi StatusLine ctermbg=darkgrey ctermfg=white
-hi StatusLineNC ctermbg=black ctermfg=lightgrey
-hi VertSplit ctermbg=black ctermfg=lightgrey
-hi LineNr ctermfg=darkgray
-hi CursorLine guifg=NONE    guibg=#121212 gui=NONE ctermfg=NONE   ctermbg=234  cterm=NONE
-hi Function   guifg=#FFD2A7 guibg=NONE    gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
-hi Visual     guifg=NONE    guibg=#262D51 gui=NONE ctermfg=NONE   ctermbg=236  cterm=NONE
+hi VertSplit        ctermfg=lightgrey   ctermbg=black
+hi StatusLine       ctermfg=white       ctermbg=darkgray cterm=NONE
+hi StatusLineNC     ctermfg=lightgrey   ctermbg=black cterm=NONE
 
-hi Error      guifg=NONE  guibg=NONE    gui=undercurl ctermfg=16 ctermbg=red cterm=NONE guisp=#FF6C60
-hi ErrorMsg   guifg=white guibg=#FF6C60 gui=BOLD      ctermfg=16 ctermbg=red cterm=NONE
-hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD      ctermfg=16 ctermbg=red cterm=NONE
-hi SpellBad   guifg=white guibg=#FF6C60 gui=BOLD      ctermfg=16 ctermbg=160 cterm=NONE
+hi Visual           ctermfg=NONE ctermbg=236
 
-hi Operator guifg=#6699CC guibg=NONE gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
+hi SpecialKey       ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
-hi DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
-hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
-hi DiffText term=reverse cterm=bold ctermbg=lightgray ctermfg=16
-hi DiffDelete term=reverse cterm=bold ctermbg=lightred ctermfg=16
+" Syntax groups
 
-hi PmenuSel ctermfg=16 ctermbg=156
+" Reduce syntax noise
+hi Operator         ctermfg=NONE      cterm=NONE
+hi Keyword          ctermfg=NONE      cterm=NONE
+hi Number           ctermfg=NONE      cterm=NONE
+hi Character        ctermfg=NONE      cterm=NONE
+hi String           ctermfg=NONE      cterm=NONE
+hi Type             ctermfg=NONE      cterm=NONE
+hi Identifier       ctermfg=NONE      cterm=NONE
+hi PreProc          ctermfg=NONE      cterm=NONE
+hi Structure        ctermfg=NONE      cterm=NONE
+hi Special          ctermfg=NONE      cterm=NONE
+hi Statement        ctermfg=NONE      cterm=NONE
+hi Conditional      ctermfg=NONE      cterm=NONE
+hi Label            ctermfg=NONE      cterm=NONE
+hi Repeat           ctermfg=NONE      cterm=NONE
+hi Constant         ctermfg=NONE      cterm=NONE
+
+hi Comment          ctermfg=darkgrey  cterm=NONE
+
+hi Todo             ctermfg=yellow    cterm=NONE
