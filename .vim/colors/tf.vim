@@ -19,6 +19,9 @@ hi StatusLine       ctermfg=white       ctermbg=darkgray cterm=NONE
 hi StatusLineNC     ctermfg=lightgrey   ctermbg=black cterm=NONE
 
 hi Visual           ctermfg=NONE ctermbg=236
+hi Pmenu            ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi PmenuSel         ctermfg=NONE        ctermbg=darkgrey    cterm=NONE
+hi PmenuSbar        ctermfg=black       ctermbg=white       cterm=NONE
 
 hi SpecialKey       ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
@@ -43,4 +46,4 @@ hi Constant         ctermfg=NONE      cterm=NONE
 
 hi Comment          ctermfg=darkgrey  cterm=NONE
 
-hi Todo             ctermfg=yellow    cterm=NONE
+hi Todo             ctermfg=yellow  ctermbg=NONE  cterm=NONE
