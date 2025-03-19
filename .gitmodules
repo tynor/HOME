@@ -34,3 +34,6 @@
 [submodule ".vim/pack/default/start/vim-graphql"]
 	path = .vim/pack/default/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql
+[submodule ".vim/pack/default/start/YouCompleteMe"]
+	path = .vim/pack/default/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
