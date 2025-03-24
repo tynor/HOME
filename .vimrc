@@ -31,7 +31,7 @@ set modelines=3
 set timeout timeoutlen=1000 ttimeoutlen=100
 set nojoinspaces
 set autoread
-set re=1
+set re=2
 set t_Co=256
 set background=dark
 set statusline=%<%f\ %y\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -118,18 +118,13 @@ function! TSServerPath()
   return ''
 endfunction
 
-let g:lsc_server_commands = {
-      \ 'typescript': 'typescript-language-server --stdio' . TSServerPath(),
-      \ 'typescriptreact': 'typescript-language-server --stdio' . TSServerPath()
-      \ }
-let g:lsc_enable_autocomplete = v:false
-let g:lsc_auto_map = v:true
-
 let g:haskell_indent_if = 2
 let g:haskell_indent_before_where = 2
 
-let g:ycm_auto_hover = ''
+set omnifunc=ale#completion#OmniFunc
 
-nnoremap <leader>gg :YcmCompleter GoTo<cr>
-nnoremap <leader>gf :YcmCompleter Format<cr>
+let g:ale_completion_enabled = 1
+
+nnoremap <leader>gg :ALEGoToDefinition<cr>
+nnoremap <leader>gf :ALEFix<cr>
 nnoremap <leader>gc :pc<cr>
