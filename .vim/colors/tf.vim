@@ -25,6 +25,10 @@ hi PmenuSbar        ctermfg=black       ctermbg=white       cterm=NONE
 
 hi SpecialKey       ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
+" Folds
+hi Folded           ctermfg=NONE   ctermbg=darkgrey        cterm=NONE
+hi FoldColumn       ctermfg=NONE   ctermbg=NONE        cterm=NONE
+
 " Syntax groups
 
 " Reduce syntax noise
