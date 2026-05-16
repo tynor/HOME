@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Script git-with-branch runs the given git command, passing a selected
+# git branch as the final argument.
+
+set -euo pipefail
+
+branch="$(git branch --format '%(refname:short)' | fzy)"
+git "$@" "$branch"
