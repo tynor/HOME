@@ -62,16 +62,16 @@ function! tf#edit_prefix() abort
 endfunction
 
 function! tf#fzy_prefix(prefix, command)
-  let prefix = substitute(a:prefix, '\/\+$', '', '')
+  let l:prefix = substitute(a:prefix, '\/\+$', '', '')
   try
-    let selection = system('cd ' . prefix . ' && rg --files --hidden | fzy')
+    let selection = system('cd ' . l:prefix . ' && rg --files --hidden | fzy')
   catch /Vim:Interrupt/
     redraw!
     return
   endtry
   redraw!
   if v:shell_error == 0 && !empty(selection)
-    exec a:command . ' ' . prefix . '/' .selection
+    exec a:command . ' ' . l:prefix . '/' .selection
   endif
 endfunction
 
@@ -80,6 +80,6 @@ function! tf#fzy_cwd(command)
 endfunction
 
 function! tf#fzy_file_dir(command)
-  let prefix = expand('%:h')
+  let l:prefix = expand('%:h')
   call tf#fzy_prefix(l:prefix, command)
 endfunction
