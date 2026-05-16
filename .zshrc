@@ -63,6 +63,8 @@ export VISUAL=$EDITOR
 
 [[ -d "/opt/homebrew/bin" ]] && path=("/opt/homebrew/bin" "/opt/homebrew/sbin" $path)
 
+[[ -d "$HOME/Applications/MacVim.app/Contents/bin" ]] && path=("$HOME/Applications/MacVim.app/Contents/bin" $path)
+
 [[ -d "/Library/Frameworks/Python.framework/Versions/Current/bin" ]] && path=("/Library/Frameworks/Python.framework/Versions/Current/bin" $path)
 [[ -d "/opt/podman/bin" ]] && path=("/opt/podman/bin" $path)
 [[ -d "/usr/local/go/bin" ]] && path=("/usr/local/go/bin" $path)
@@ -114,6 +116,9 @@ if [ "$(uname)" = Darwin ]; then
         xattr -r -d com.apple.quarantine "$@"
     }
 fi
+
+# Placate my muscle memory for vi
+alias vi=vim
 
 # Alias defined for working with the ~/.dotfiles repository
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
