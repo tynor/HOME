@@ -1,0 +1,17 @@
+scriptencoding utf-8
+
+set nocompatible
+filetype plugin indent on
+syntax enable
+
+colors tf
+
+let mapleader = " "
+let maplocalleader = ","
+
+runtime config/options.vim
+runtime config/ui.vim
+runtime config/plugins.vim
+runtime config/commands.vim
+runtime config/mappings.vim
+runtime config/autocmds.vim
