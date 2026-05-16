@@ -1,41 +1,3 @@
-function g:tf#ExecFlags(name)
-  let l:p = expand('%:p:h')
-  while l:p !=# '/' && l:p !=# ''
-    let l:filepath = l:p . '/' . a:name
-    if filereadable(l:filepath)
-      return trim(system(shellescape(l:filepath))) . ' -Wno-undefined-internal'
-    endif
-    if isdirectory(l:p . '/.git')
-      return ''
-    endif
-    let l:p = fnamemodify(l:p, ':h')
-  endwhile
-
-  return ''
-endfunction
-
-function g:tf#CClangFlags()
-  let l:flags = g:tf#ExecFlags('clang-cflags.sh')
-  return trim(l:flags . ' -Wno-undefined-internal')
-endfunction
-
-function g:tf#ObjcClangFlags()
-  let l:flags = g:tf#ExecFlags('clang-cflags.sh')
-  let l:flags = l:flags . ' ' . g:tf#ExecFlags('clang-objcflags.sh')
-  return trim(l:flags . ' -Wno-undefined-internal')
-endfunction
-
-function g:tf#CxxClangFlags()
-  let l:flags = g:tf#ExecFlags('clang-cxxflags.sh')
-  return trim(l:flags . ' -Wno-undefined-internal')
-endfunction
-
-function g:tf#ObjcxxClangFlags()
-  let l:flags = g:tf#ExecFlags('clang-cxxflags.sh')
-  let l:flags = l:flags . ' ' . g:tf#ExecFlags('clang-objcflags.sh')
-  return trim(l:flags . ' -Wno-undefined-internal')
-endfunction
-
 function! tf#trim_trailing_whitespace() abort
   let l:view = winsaveview()
   silent! keeppatterns %s/\s\+$//e
@@ -76,10 +38,10 @@ function! tf#fzy_prefix(prefix, command)
 endfunction
 
 function! tf#fzy_cwd(command)
-  call tf#fzy_prefix('.', command)
+  call tf#fzy_prefix('.', a:command)
 endfunction
 
 function! tf#fzy_file_dir(command)
   let l:prefix = expand('%:h')
-  call tf#fzy_prefix(l:prefix, command)
+  call tf#fzy_prefix(l:prefix, a:command)
 endfunction
