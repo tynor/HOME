@@ -7,6 +7,7 @@ set cmdheight=1
 set modeline
 set modelines=3
 set statusline=%<%f\ %y\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set laststatus=2
 
 set linebreak
 
