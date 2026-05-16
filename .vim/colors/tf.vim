@@ -16,7 +16,7 @@ hi LineNr        guifg=darkgrey ctermfg=darkgray
 
 hi VertSplit     guifg=lightgrey guibg=black ctermfg=lightgrey   ctermbg=black
 hi StatusLine    guifg=white guibg=darkgrey ctermfg=white       ctermbg=darkgray cterm=NONE
-hi StatusLineNC  guifg=lightgrey guibg=black ctermfg=lightgrey   ctermbg=black cterm=NONE
+hi StatusLineNC  guifg=darkgrey guibg=lightgrey ctermfg=lightgrey   ctermbg=black cterm=NONE
 
 hi Visual        guifg=NONE guibg=#303030 ctermfg=NONE ctermbg=236
 hi Pmenu         guifg=NONE guibg=NONE ctermfg=NONE        ctermbg=NONE        cterm=NONE
