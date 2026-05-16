@@ -37,3 +37,6 @@ set ttimeoutlen=10
 
 set diffopt+=vertical
 set diffopt+=algorithm:patience
+
+" Use ALE for <c-x><x-o> completion
+set omnifunc=ale#completion#OmniFunc
