@@ -3,7 +3,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/default/start/editorconfig-vim"]
 	path = .vim/pack/default/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule ".vim/pack/default/start/vim-commentary"]
 	path = .vim/pack/default/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
