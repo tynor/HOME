@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+LOG_HASH='%C(yellow)%h%C(reset)'
+LOG_RELTIME='%C(green)(%ar)%C(reset)'
+LOG_AUTHOR='%C(bold blue)<%an>%C(reset)'
+LOG_REFS='%C(bold red)%d%C(reset)'
+LOG_SUBJECT='%s'
+
+LOG_FORMAT="$LOG_HASH}$LOG_RELTIME}$LOG_AUTHOR}$LOG_REFS $LOG_SUBJECT"
+
+BR_PREFIX='%(HEAD)'
+BR_REF='%(color:red)%(color:bold)%(refname:short)%(color:reset)'
+BR_HASH='%(color:yellow)%(objectname:short)%(color:reset)'
+BR_DATE='%(color:green)(%(committerdate:relative))%(color:reset)'
+BR_AUTHOR='%(color:blue)%(color:bold)<%(authorname)>%(color:reset)'
+BR_CONTENTS='%(contents:subject)'
+
+BR_FORMAT="$BR_PREFIX}$BR_REF}$BR_HASH}$BR_DATE}$BR_AUTHOR}$BR_CONTENTS"
+
+pretty_git_log() {
+    local git_color;
+    if [ -n "$GIT_NO_PAGER" ]; then
+        git_color=always
+    else
+        git_color=never
+    fi
+    git log --graph --color="$git_color" --pretty="tformat:$LOG_FORMAT" "$@" |
+    pretty_git_format |
+    git_page_maybe
+}
+
+pretty_git_branch() {
+    git branch -v --color=always --format="$BR_FORMAT" "$@" |
+    pretty_git_format
+}
+
+pretty_git_branch_sorted() {
+    git branch -v \
+        --color=always \
+        --format="$BR_FORMAT" \
+        --sort=-commiterdate \
+        "$@" |
+    pretty_git_format
+}
+
+pretty_git_format() {
+    sed -Ee 's/(^[^<]*) ago\)/\1)/' |
+    sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
+    column -s '}' -t
+}
+
+git_page_maybe() {
+    if [ -n "$GIT_NO_PAGER" ]; then
+        cat
+    else
+        less --quit-if-one-screen \
+            --no-init \
+            --RAW-CONTROL-CHARS \
+            --chop-long-lines
+    fi
+}
