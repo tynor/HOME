@@ -26,10 +26,16 @@ export def EditPrefix(): string
 enddef
 
 def FzyPrefix(prefix: string, command: string): void
+  var rows = &lines
   var clean_prefix = substitute(prefix, '\/\+$', '', '')
+  var script_lines =<< trim eval END
+    cd {clean_prefix} &&
+    printf '\033[%s;1H' '{rows}' >/dev/tty &&
+    rg --files --hidden | fzy
+  END
   var selection: string
   try
-    selection = system($'cd {clean_prefix} && rg --files --hidden | fzy')
+    selection = system(script_lines->join("\n"))
   catch /Vim:Interrupt/
     redraw!
     return
