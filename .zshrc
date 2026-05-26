@@ -61,7 +61,11 @@ bindkey '^R' history-incremental-search-backward
 export EDITOR=vim
 export VISUAL=$EDITOR
 
-[[ -d "/opt/homebrew/bin" ]] && path=("/opt/homebrew/bin" "/opt/homebrew/sbin" $path)
+if [[ -d "/opt/workbrew/bin" ]]; then
+    eval $(/opt/workbrew/bin/brew shellenv)
+elif [[ -d "/opt/homebrew/bin" ]]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
+fi
 
 [[ -d "$HOME/Applications/MacVim.app/Contents/bin" ]] && path=("$HOME/Applications/MacVim.app/Contents/bin" $path)
 
@@ -129,3 +133,48 @@ alias ssh-add-keychain='ssh-add --apple-load-keychain'
 if command -v gpg >/dev/null 2>&1; then
     export GPG_TTY="$(tty)"
 fi
+
+# Notetaking
+
+# Open the daily log note
+l() {
+    mkdir -p "$HOME/notes/log"
+    $EDITOR "$HOME/notes/log/Log $(date -I).txt"
+}
+
+todo() {
+    mkdir -p "$HOME/notes"
+    $EDITOR "$HOME/notes/todo.txt"
+}
+
+globdir() {
+    (
+        set -e
+        cd "$1"
+        fs=(*(N))
+        if (( $#fs > 0 )); then
+            find ${fs[@]} -depth 0 -type "$2"
+        fi
+    )
+}
+
+# Open a project note
+proj() {
+    local p_base="$HOME/notes/projects"
+    mkdir -p "$p_base"
+    local p_name="$(globdir "$p_base" d | fzy)"
+    if [ -z "$p_name" ]; then
+        echo "No project selected; exiting" >&2
+        return 1
+    fi
+    local p_path="$p_base/$p_name"
+    mkdir -p "$p_path"
+    local n_name="$(globdir "$p_path" f | fzy)"
+    if [ -z "$n_name" ]; then
+        echo "No file selected; exiting" >&2
+        return 1
+    fi
+    local n_path="$p_path/$n_name"
+    mkdir -p "$(dirname "$n_path")"
+    $EDITOR "$n_path"
+}
