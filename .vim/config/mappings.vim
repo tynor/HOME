@@ -11,9 +11,6 @@ import autoload "tf.vim"
 # Clear search highlight
 nnoremap <leader>c :nohlsearch\|pclose<cr>
 
-# Preserve cursor position on line join
-nnoremap J mzJ`z
-
 # Insert the current directory into the command window
 cnoremap <expr> %% tf.EditPrefix()
 
