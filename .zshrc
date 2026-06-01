@@ -74,8 +74,6 @@ fi
 [[ -d "/usr/local/go/bin" ]] && path=("/usr/local/go/bin" $path)
 [[ -d "$HOME/go/bin" ]] && path=("$HOME/go/bin" $path)
 [[ -d "$HOME/.cargo/bin" ]] && path=("$HOME/.cargo/bin" $path)
-export PNPM_HOME="$HOME/Library/pnpm"
-[[ -d "$PNPM_HOME" ]] && path=("$PNPM_HOME" $path)
 
 [[ -d "$HOME/.usr/bin" ]] && path=("$HOME/.usr/bin" "$HOME/.usr/sbin" $path)
 [[ -d "$HOME/.local/bin" ]] && path=("$HOME/.local/bin" $path)
@@ -178,3 +176,11 @@ proj() {
     mkdir -p "$(dirname "$n_path")"
     $EDITOR "$n_path"
 }
+
+# pnpm
+export PNPM_HOME="/Users/tynor/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
