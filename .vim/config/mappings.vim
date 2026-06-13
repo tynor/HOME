@@ -15,7 +15,7 @@ nnoremap <leader>c :nohlsearch\|pclose<cr>
 cnoremap <expr> %% tf.EditPrefix()
 
 # Quickly switch to the previous file
-nnoremap <leader><space> <c-^>
+nnoremap <leader><leader> <c-^>
 
 # Insert a hash rocket
 # This comes up less now that I don't work in PHP as much.

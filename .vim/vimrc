@@ -6,8 +6,7 @@ syntax enable
 
 colors tf
 
-let mapleader = " "
-let maplocalleader = ","
+let mapleader = ","
 
 runtime config/options.vim
 runtime config/ui.vim
