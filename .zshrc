@@ -69,6 +69,8 @@ fi
 
 [[ -d "$HOME/Applications/MacVim.app/Contents/bin" ]] && path=("$HOME/Applications/MacVim.app/Contents/bin" $path)
 
+[[ -d "$HOME/.opencode/bin" ]] && path=("$HOME/.opencode/bin" $path)
+
 [[ -d "/Library/Frameworks/Python.framework/Versions/Current/bin" ]] && path=("/Library/Frameworks/Python.framework/Versions/Current/bin" $path)
 [[ -d "/opt/podman/bin" ]] && path=("/opt/podman/bin" $path)
 [[ -d "/usr/local/go/bin" ]] && path=("/usr/local/go/bin" $path)
