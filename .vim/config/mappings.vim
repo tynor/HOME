@@ -37,3 +37,5 @@ nnoremap <leader>fd <ScriptCmd>tf.FzyFileDir(':e')<cr>
 
 nnoremap <leader>dp <Plug>(ale_previous_wrap)
 nnoremap <leader>dn <Plug>(ale_next_wrap)
+
+nnoremap <leader>df <Plug>(ale_fix)
