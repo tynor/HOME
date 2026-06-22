@@ -24,7 +24,7 @@ set switchbuf=useopen
 
 set wildmenu
 set wildmode=longest:full,full
-set completeopt=menuone,noselect
+set completeopt=menuone
 
 set splitright
 set winwidth=79
