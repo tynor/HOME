@@ -5,3 +5,7 @@ b:ale_fixers = [
   'trim_whitespace',
   'zigfmt',
 ]
+
+setlocal textwidth=72
+setlocal formatoptions-=t
+setlocal formatoptions+=cnq
