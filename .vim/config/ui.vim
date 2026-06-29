@@ -14,8 +14,6 @@ set linebreak
 " By default do not hard-wrap.
 set textwidth=0
 
-set termguicolors
-
 set shortmess+=c
 
 set wildignore+=*.o,*.obj,*.pyc,*.class
