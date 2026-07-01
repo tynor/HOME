@@ -54,7 +54,9 @@ hi Comment          guifg=darkgrey ctermfg=darkgrey  cterm=NONE
 
 hi Todo             guifg=yellow guibg=NONE ctermfg=yellow  ctermbg=NONE  cterm=NONE
 
+hi SpellBad guifg=NONE guibg=#5f0000 ctermfg=NONE ctermbg=52
+
 " ALE
 
-hi ALEErrorSign guifg=darkgrey guibg=red ctermfg=darkgrey ctermbg=red
+hi ALEErrorSign guifg=darkgrey guibg=#5f0000 ctermfg=darkgrey ctermbg=52
 hi ALEWarningSign guifg=darkgrey guibg=yellow ctermfg=darkgrey ctermbg=yellow
