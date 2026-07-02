@@ -138,8 +138,12 @@ fi
 
 # Open the daily log note
 l() {
-    mkdir -p "$HOME/notes/log"
-    $EDITOR "$HOME/notes/log/Log $(date -I).txt"
+    local f="$HOME/notes/log/Log $(date -I).txt"
+    mkdir -p "$(dirname "$f")"
+    if [ ! -s "$f" ]; then
+        echo "# Log $(date -I)" >"$f"
+    fi
+    $EDITOR "$f"
 }
 
 todo() {
