@@ -21,7 +21,7 @@ unsetopt FLOW_CONTROL
 unset command_not_found_handle
 
 autoload -Uz compinit
-compinit
+compinit -u
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
