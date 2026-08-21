@@ -1,6 +1,9 @@
 # Only run this file for interactive shells
 [[ $- != *i* ]] && return
 
+[[ -f "$HOME/.zsh-pre.local" ]] && . "$HOME/.zsh-pre.local"
+: ${use_vcs_info:=1}
+
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -85,6 +88,12 @@ export PATH
 
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
+if command -v pyenv >/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - zsh)"
+fi
+
 export SELECTOR=fzy
 
 export DOCKER_BUILDKIT=1
@@ -113,7 +122,11 @@ tmp() {
 }
 
 precmd() {
-    vcs_info
+    if [[ $use_vcs_info -eq 1 ]]; then
+        vcs_info
+    else
+        vcs_info_msg_0_=""
+    fi
 }
 
 if [ "$(uname)" = Darwin ]; then
