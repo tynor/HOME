@@ -18,7 +18,8 @@
 	url = https://github.com/tpope/vim-repeat.git
 [submodule ".vim/pack/default/start/ale"]
 	path = .vim/pack/default/start/ale
-	url = https://github.com/dense-analysis/ale.git
+	url = https://github.com/tynor/ale.git
+	branch = lsp-workspace-folders
 [submodule ".vim/pack/default/start/vim-beancount"]
 	path = .vim/pack/default/start/vim-beancount
 	url = https://github.com/nathangrigg/vim-beancount.git
