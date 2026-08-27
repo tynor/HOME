@@ -6,6 +6,8 @@ b:ale_fixers = [
   'zigfmt',
 ]
 
+b:ale_linters = ['zls']
+
 setlocal textwidth=72
 setlocal formatoptions-=t
 setlocal formatoptions+=cnq
