@@ -5,6 +5,8 @@ font-feature = -calt, -liga, -dlig
 background = 000000
 foreground = c3c3c3
 
+minimum-contrast = 3
+
 cursor-style = block
 cursor-style-blink = false
 
@@ -17,3 +19,5 @@ auto-update = check
 window-step-resize = true
 
 window-inherit-working-directory = false
+
+scrollback-limit = 4294967296
