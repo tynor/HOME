@@ -1,6 +1,6 @@
 vim9script
 
-b:ale_linters = ['ruff']
+b:ale_linters = ['ruff', 'pyright']
 
 b:ale_fixers = ['ruff_format']
 
