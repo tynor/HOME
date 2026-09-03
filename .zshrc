@@ -76,6 +76,7 @@ fi
 
 [[ -d "/Library/Frameworks/Python.framework/Versions/Current/bin" ]] && path=("/Library/Frameworks/Python.framework/Versions/Current/bin" $path)
 [[ -d "/opt/podman/bin" ]] && path=("/opt/podman/bin" $path)
+[[ -d "$HOME/.local/google-cloud-sdk/bin" ]] && path=("$HOME/.local/google-cloud-sdk/bin" $path)
 [[ -d "/usr/local/go/bin" ]] && path=("/usr/local/go/bin" $path)
 [[ -d "$HOME/go/bin" ]] && path=("$HOME/go/bin" $path)
 [[ -d "$HOME/.cargo/bin" ]] && path=("$HOME/.cargo/bin" $path)
