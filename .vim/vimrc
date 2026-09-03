@@ -14,3 +14,4 @@ runtime config/plugins.vim
 runtime config/commands.vim
 runtime config/mappings.vim
 runtime config/autocmds.vim
+runtime config/local.vim
